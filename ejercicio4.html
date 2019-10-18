@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 3</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+
+    <a href="http://www.lavoz.com.ar">La Voz del Interior</a>
+    <br>
+    <a href="http://www.lanacion.com.ar">La nación</a>
+    <br>
+    <a href="http://www.clarin.com.ar">El clarín</a>
+    <br>
+
+    <script type="text/javascript">
+        var x;
+        x = $(document);
+        x.ready(inicializarEventos);
+
+        function inicializarEventos() {
+            var x;
+            x = $("a");
+            x.hover(entraMouse, saleMouse);
+        }
+
+
+        function entraMouse() {
+            $(this).css("background-color", "#ff0");
+        }
+
+        function saleMouse() {
+            $(this).css("background-color", "#fff");
+        }
+    </script>
+</body>
+
+</html>
