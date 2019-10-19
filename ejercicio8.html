@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 8</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+        var x;
+        x = $(document);
+        x.ready(inicializarEventos);
+        function inicializarEventos() {
+            var x;
+            x = $("#boton1");
+            x.click(presionBoton1);
+            x = $("#boton2");
+            x.click(presionBoton2);
+        }
+
+        function presionBoton1() {
+            var x;
+            x = $("#formulario");
+            x.html('<form>Ingrese nombre:<input type="text" id="nombre"><br>Ingrese clave:<input type="text" id="clave"><br><input type="submit" value="confirmar"></form>');
+        }
+
+        function presionBoton2() {
+            var x;
+            x = $("#formulario");
+            alert(x.html());
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" id="boton1" value="Mostrar formulario">
+    <input type="button" id="boton2" value="Mostrar elementos 
+        html del formulario"><br>
+    <div id="formulario">
+    </div>
+</body>
+
+</html>

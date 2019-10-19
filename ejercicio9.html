@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 9</title>
+    <link rel="stylesheet" href="ejercicio9.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+        var x;
+        x = $(document);
+        x.ready(inicializarEventos);
+
+        function inicializarEventos() {
+            var x = $("#text1");
+            x.focus(tomaFoco);
+            x = $("#text2");
+            x.focus(tomaFoco);
+        }
+
+        function tomaFoco() {
+            var x = $(this);
+            x.css("color", "#f00");
+        }
+    </script>
+</head>
+
+<body>
+    <form action="#" method="post">
+        <input type="text" name="text1" id="text1" value="Hola" size="20">
+        <br>
+        <input type="text" name="text2" id="text2" value="Hola" size="20">
+    </form>
+</body>
+
+</html>
