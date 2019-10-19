@@ -1,7 +1,7 @@
 # Practica2Dise-oWeb2
 Practicas con Jquery de la Materia de Diseño Web 2 de la UPDS - Sede Cochabamba
 
-1.-Relizar una galeria de efectos que tiene jquery.
+1.-Relizar una galeria de efectos que tiene jquery.<br>
 2.- Disponer dos listas luego cuando se presione un botón ocultar todos los li de la primera lista y otro botón que lo muestre.
 3.- Confeccionar una página que muestre dos títulos de primer nivel, al ser presionados cambiar el color de fuente, fondo y la fuente del texto.
 Evento de mouse
