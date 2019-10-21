@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Juego en 3 en raya</title>
+    <style>
+        .cl {
+            display: inline-block;
+            margin: 0 auto;
+            text-align: center;
+            width: 100%;
+        }
+
+        .coman {
+            display: inline-block;
+
+            min-height: 300px;
+            vertical-align: top;
+            width: 25%;
+            margin: 1em;
+        }
+
+        .tablero {
+            border: 1px solid lightblue;
+            display: inline-block;
+            margin: 1em;
+            text-align: center;
+            width: 50%;
+        }
+
+        .tablero input {
+            font-size: 3em;
+            height: 80px;
+            margin: 10px;
+            width: 80px;
+        }
+
+        input[type="button"]#iniciar {
+            font-size: 0.8em;
+            margin-top: 2em;
+            padding: 0.7em;
+        }
+
+        label {
+            display: block;
+            padding: 12px;
+            font-size: 1em;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .botonInicial {
+            color: #77d;
+            background-color: #77d;
+        }
+
+        .botonJugador1 {
+            color: white;
+            background-color: #d77;
+        }
+
+        .botonJugador2 {
+            color: white;
+            background-color: #7d7;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="cl">
+        <div class="coman">
+            <input type="button" value="Comenzar" id="iniciar"><br>
+            <label for="" id="turnoJugador"></label>
+        </div>
+        <div class="tablero">
+            <input type="button" id="b0" onclick="colocar(this)" class="">
+            <input type="button" id="b1" onclick="colocar(this)" class="">
+            <input type="button" id="b2" onclick="colocar(this)" class=""><br>
+
+            <input type="button" id="b3" onclick="colocar(this)" class="">
+            <input type="button" id="b4" onclick="colocar(this)" class="">
+            <input type="button" id="b5" onclick="colocar(this)" class=""><br>
+
+            <input type="button" id="b6" onclick="colocar(this)" class="">
+            <input type="button" id="b7" onclick="colocar(this)" class="">
+            <input type="button" id="b8" onclick="colocar(this)" class=""><br>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var bandera = false; //Indica si el juego inicio
+        var turno = 0; //Determina el turno
+        var tabl = new Array(); //Arreglo de botones
+
+        window.onload = function () {
+            var iniciar = document.getElementById("iniciar");
+            iniciar.addEventListener("click", comenzar);
+        }
+
+        function comenzar() {
+            bandera = true;
+
+            tabl[0] = document.getElementById("b0");
+            tabl[1] = document.getElementById("b1");
+            tabl[2] = document.getElementById("b2");
+            tabl[3] = document.getElementById("b3");
+            tabl[4] = document.getElementById("b4");
+            tabl[5] = document.getElementById("b5");
+            tabl[6] = document.getElementById("b6");
+            tabl[7] = document.getElementById("b7");
+            tabl[8] = document.getElementById("b8");
+
+            for (var i = 0; i < 9; i++) {
+                tabl[i].className = "botonInicial";
+                tabl[i].value = "I";
+            }
+            turno = 1;
+            document.getElementById("turnoJugador").innerHTML = "Adelante: Jugador 1";
+
+        }
+
+        function colocar(boton) {
+            if (bandera == true) {
+                if (turno == 1 && boton.value == "I") {
+                    turno = 2;
+                    document.getElementById("turnoJugador").innerHTML = "Adelante: Jugador 2";
+                    boton.value = "X";
+                    boton.className = "botonJugador1";
+                } else {
+                    if (turno == 2 && boton.value == "I") {
+                        turno = 1;
+                        document.getElementById("turnoJugador").innerHTML = "Adelante: Jugador 1";
+                        boton.value = "O";
+                        boton.className = "botonJugador2";
+                    }
+                }
+            }
+            revisar();
+            console.log(tabl);
+        }
+
+        function revisar() {
+            if ((tabl[0].value == "X" && tabl[1].value == "X", tabl[2].value == "X")
+                || (tabl[3].value == "X" && tabl[4].value == "X", tabl[5].value == "X")
+                || (tabl[6].value == "X" && tabl[7].value == "X", tabl[8].value == "X")
+                || (tabl[0].value == "X" && tabl[3].value == "X", tabl[6].value == "X")
+                || (tabl[1].value == "X" && tabl[4].value == "X", tabl[7].value == "X")
+                || (tabl[2].value == "X" && tabl[5].value == "X", tabl[8].value == "X")
+                || (tabl[0].value == "X" && tabl[4].value == "X", tabl[8].value == "X")
+                || (tabl[2].value == "X" && tabl[1].value == "X", tabl[2].value == "X")
+            ) {
+                alert("Felidades ganaste Jugador 1")
+                bandera = false;
+            } else {
+                if ((tabl[0].value == "O" && tabl[1].value == "O", tabl[2].value == "O")
+                    || (tabl[3].value == "O" && tabl[4].value == "O", tabl[5].value == "O")
+                    || (tabl[6].value == "O" && tabl[7].value == "O", tabl[8].value == "O")
+                    || (tabl[0].value == "O" && tabl[3].value == "O", tabl[6].value == "O")
+                    || (tabl[1].value == "O" && tabl[4].value == "O", tabl[7].value == "O")
+                    || (tabl[2].value == "O" && tabl[5].value == "O", tabl[8].value == "O")
+                    || (tabl[0].value == "O" && tabl[4].value == "O", tabl[8].value == "O")
+                    || (tabl[2].value == "O" && tabl[1].value == "O", tabl[2].value == "O")
+                ) {
+                    alert("Felidades ganaste Jugador 2")
+                    bandera = false;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
